@@ -96,7 +96,8 @@ DATABASES = {
     #     'PORT': '5432',
     # }
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
+        # default=os.environ.get('DATABASE_URL')
+        default=f"postgresql://postgres:hilarion@localhost:5432/crud_users_db"
     )
 }
 
