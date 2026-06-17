@@ -139,8 +139,7 @@ STATIC_URL = 'static/'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # adresse de React
-    "https://crud-users-phi.vercel.app",
-    "https://crud-users-g73jg6jx4-konans-projects-d411ba30.vercel.app/",# à ajouter après déploiement Vercel
+    "https://crud-users-phi.vercel.app/",  # à ajouter après déploiement Vercel
 ]
 
 # Pour servir les fichiers statiques
