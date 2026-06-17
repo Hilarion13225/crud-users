@@ -10,6 +10,11 @@ class User(models.Model):
     nom = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     mot_de_passe = models.CharField(max_length=255)
+    role = models.CharField(        # ← MANQUAIT
+        max_length=20,
+        choices=ROLE_CHOICES,
+        default='utilisateur'
+    )
     image = models.ImageField(
         upload_to='users/',
         blank=True,
