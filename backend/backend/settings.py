@@ -104,9 +104,9 @@ DATABASES = {
 
 # Configuration Cloudinary (après DATABASES)
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dbgtkhhqo',
-    'API_KEY': '586269463397167',
-    'API_SECRET': 'NyaYSgzWv6c7prIfMNz32wANjV0',
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
