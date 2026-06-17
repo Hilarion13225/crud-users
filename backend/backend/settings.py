@@ -118,6 +118,9 @@ STORAGES = {
     },
 }
 
+# Compatibilité django-cloudinary-storage avec Django 6
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
