@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
+from datetime import timedelta
 
 
 load_dotenv()
@@ -48,7 +49,19 @@ INSTALLED_APPS = [
     'corsheaders',          # AJOUTER
     'users',                # AJOUTER
     'cloudinary',          # AJOUTER
+    'rest_framework_simplejwt',  # AJOUTER
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',   # AJOUTER EN PREMIER
