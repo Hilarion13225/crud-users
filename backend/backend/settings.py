@@ -42,11 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',  # AJOUTER   # ← DOIT être avant staticfiles
     'django.contrib.staticfiles',
     'rest_framework',       # AJOUTER
     'corsheaders',          # AJOUTER
     'users',                # AJOUTER
-    'cloudinary_storage',  # AJOUTER
     'cloudinary',          # AJOUTER
 ]
 
@@ -108,7 +108,7 @@ CLOUDINARY_STORAGE = {
     'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
-
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -157,5 +157,5 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Dire à Django d'utiliser Cloudinary pour les fichiers média
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 MEDIA_URL = '/media/'
