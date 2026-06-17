@@ -7,6 +7,7 @@ import AdminDashboard from './pages/AdminDashboard'
 import ClientDashboard from './pages/ClientDashboard'
 import ProfilDashboard from './pages/ProfilDashboard'
 import PrivateRoute from './components/PrivateRoute'
+import Register from './pages/Register'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <PrivateRoute role="utilisateur"><ProfilDashboard /></PrivateRoute>
           } />
           <Route path="*" element={<Navigate to="/login" />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

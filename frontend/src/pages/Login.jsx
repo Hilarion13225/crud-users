@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import axios from 'axios'
 
@@ -51,6 +51,9 @@ function Login() {
           Se connecter
         </button>
       </form>
+      <p style={{ marginTop: '1rem', textAlign: 'center' }}>
+        Pas encore de compte ? <Link to="/register">S'inscrire</Link>
+      </p>
     </div>
   )
 }
