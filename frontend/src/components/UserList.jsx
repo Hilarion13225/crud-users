@@ -21,14 +21,27 @@ function UserList({ users, onEdit, onDelete }) {
             <td>{user.id}</td>
             <td>{user.nom}</td>
             <td>{user.email}</td>
-            <td>
+            <td style={{ textAlign: 'center' }}>
                 {user.image ? (
-                    <img src={user.image} alt={user.nom}
-                    style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
+                    <img
+                    src={user.image}
+                    alt=""
+                    onError={(e) => { e.target.style.display = 'none' }}
+                    style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        display: 'block',
+                        margin: '0 auto'
+                    }}
+                    />
                 ) : (
-                    <div style={{ width: '40px', height: '40px', borderRadius: '50%',
+                    <div style={{
+                    width: '40px', height: '40px', borderRadius: '50%',
                     background: '#ddd', display: 'flex', alignItems: 'center',
-                    justifyContent: 'center', fontSize: '18px' }}>
+                    justifyContent: 'center', fontSize: '18px', margin: '0 auto'
+                    }}>
                     👤
                     </div>
                 )}
