@@ -10,6 +10,7 @@ function UserList({ users, onEdit, onDelete }) {
           <th>ID</th>
           <th>Nom</th>
           <th>Email</th>
+          <th>Photo</th>
           <th>Créé le</th>
           <th>Actions</th>
         </tr>
@@ -20,6 +21,18 @@ function UserList({ users, onEdit, onDelete }) {
             <td>{user.id}</td>
             <td>{user.nom}</td>
             <td>{user.email}</td>
+            <td>
+                {user.image ? (
+                    <img src={user.image} alt={user.nom}
+                    style={{ width: '40px', height: '40px', borderRadius: '50%', objectFit: 'cover' }} />
+                ) : (
+                    <div style={{ width: '40px', height: '40px', borderRadius: '50%',
+                    background: '#ddd', display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', fontSize: '18px' }}>
+                    👤
+                    </div>
+                )}
+            </td>
             <td>{new Date(user.cree_le).toLocaleDateString('fr-FR')}</td>
             <td>
               <button onClick={() => onEdit(user)} style={{ marginRight: '8px' }}>

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'rest_framework',       # AJOUTER
     'corsheaders',          # AJOUTER
     'users',                # AJOUTER
+    'cloudinary_storage',  # AJOUTER
+    'cloudinary',          # AJOUTER
 ]
 
 MIDDLEWARE = [
@@ -100,6 +102,13 @@ DATABASES = {
     )
 }
 
+# Configuration Cloudinary (après DATABASES)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -146,3 +155,7 @@ CORS_ALLOWED_ORIGINS = [
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Dire à Django d'utiliser Cloudinary pour les fichiers média
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/media/'
